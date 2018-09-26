@@ -14,14 +14,15 @@ public class ShareDataTest3 {
         b.start();
         c.start();*/
 
-        //共享数据的做法
-        MyThread myThread = new MyThread();
-        Thread a = new Thread(myThread, "A");
-        Thread b = new Thread(myThread, "B");
-        Thread c = new Thread(myThread, "C");
-        a.start();
-        b.start();
-        c.start();
+//        //共享数据的做法
+//        MyThread myThread = new MyThread();
+//        Thread a = new Thread(myThread, "A");
+//        Thread b = new Thread(myThread, "B");
+//        Thread c = new Thread(myThread, "C");
+//        a.start();
+//        b.start();
+//        c.start();
+        System.out.println();
     }
 
     static class MyThread extends Thread{
@@ -36,7 +37,7 @@ public class ShareDataTest3 {
         }
 
         @Override
-        public void run() {
+        public synchronized void run() {
             while (count>0){
                 try {
                     Thread.sleep(random.nextInt(1000));
