@@ -52,7 +52,7 @@ public class InterruptTest6 {
                 e.printStackTrace();
             }
         }*/
-        @Override
+        /*@Override
         public void run() {
             try {
                 for (int i = 0; i < 100000; i++) {
@@ -66,6 +66,18 @@ public class InterruptTest6 {
                 System.out.println("线程状态："+this.isInterrupted());
                 e.printStackTrace();
             }
+        }*/
+        @Override
+        public void run() {
+            for (int i = 0; i < 10000; i++) {
+                if (this.interrupted()) {
+                    System.out.println("被打断，退出");
+                    return;
+                }
+                System.out.println("i=" + i);
+            }
+            System.out.println("线程不会执行这句话");
         }
     }
 }
+
